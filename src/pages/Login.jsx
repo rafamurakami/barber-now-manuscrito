@@ -3,6 +3,7 @@ import EmailField from '../components/EmailField';
 import PasswordField from '../components/PasswordField';
 import Botao from '../components/LoginButton';
 import '../App.css'; 
+import BotaoCadastro from '../components/Cadastro/BotaoCadastro';
 
 function LoginPage() {
   return (
@@ -12,6 +13,7 @@ function LoginPage() {
         <p className="card-subtitle">Seu estilo começa aqui</p>
         <EmailField />
         <PasswordField />
+        <BotaoCadastro />
         <Botao />
       </div>
     </div>

@@ -23,7 +23,7 @@ const Header = () => {
           <li><a href="#avaliacoes">Avaliações</a></li>
         </ul>
         <button onClick={handleLogout} className={styles.logout}>
-          Sair
+          <b>Sair</b>
         </button>
       </nav>
     </header>

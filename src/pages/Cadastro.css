@@ -1,0 +1,77 @@
+/* Estilo do container principal que será centralizado na tela */
+.cadastro-container {
+    background-color: #E3D5CA; /* Cor da tela de fundo */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Estilo do formulário usando Grid Layout para as colunas */
+.cadastro-form {
+    width: 100%;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Cria duas colunas */
+    gap: 20px 40px; /* Espaçamento entre os campos (vertical e horizontal) */
+}
+
+/* Estilo para cada item do formulário (label + input) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo das etiquetas (NOME, CPF, etc.) */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #37474f; /* Cor dos nomes/labels */
+    font-size: 0.9em;
+}
+
+/* Estilo dos campos de texto */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+    border: 1px solid #37474f;
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
+}
+
+/* Container para os botões */
+.button-container {
+    grid-column: 1 / -1; /* Faz o container ocupar as duas colunas */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os botões */
+    margin-top: 30px;
+}
+
+/* Estilo geral dos botões */
+.btn {
+    background-color: #8b0000; /* Cor dos botões */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none; /* Para o botão "Voltar" que é um link */
+    text-align: center;
+    transition: opacity 0.2s; /* Efeito suave no hover */
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
