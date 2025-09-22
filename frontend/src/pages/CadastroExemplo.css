@@ -14,10 +14,10 @@
 /* Estilo do formulário usando Grid Layout para as colunas */
 .cadastro-form {
     width: 100%;
-    max-width: 800px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Cria duas colunas */
-    gap: 20px 40px; /* Espaçamento entre os campos (vertical e horizontal) */
+    max-width: 500px; /* Reduzi a largura máxima */
+    display: flex;
+    flex-direction: column; /* Mudei para coluna única */
+    gap: 20px; /* Espaçamento entre os campos */
     background-color: white;
     padding: 40px;
     border-radius: 10px;
@@ -59,7 +59,6 @@ input[type="email"]:focus {
 
 /* Container para os botões */
 .button-container {
-    grid-column: 1 / -1; /* Faz o container ocupar as duas colunas */
     display: flex;
     justify-content: center;
     gap: 20px; /* Espaço entre os botões */
@@ -88,10 +87,22 @@ input[type="email"]:focus {
     transform: translateY(-2px);
 }
 
+/* Adicione um título para o formulário */
+.cadastro-form h2 {
+    text-align: center;
+    color: #37474f;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    grid-column: 1 / -1; /* Faz o título ocupar toda a largura */
+}
+
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
+    .cadastro-container {
+        padding: 20px;
+    }
+    
     .cadastro-form {
-        grid-template-columns: 1fr; /* Uma coluna em telas menores */
         padding: 20px;
     }
     

@@ -16,7 +16,7 @@ function App() {
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/usuarios" element={<Usuarios />} />
       <Route path="/cadastroexemplo" element={<CadastroExemplo />} />
-       <Route path="/editar-usuario/:id" element={<EditarUsuario />} />
+      <Route path="/editar-usuario/:id" element={<EditarUsuario />} />
     </Routes>
   );
 }

@@ -8,11 +8,20 @@ const EditarUsuario = () => {
     email: ''
   });
   const [carregando, setCarregando] = useState(true);
+  const [modoEdicao, setModoEdicao] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
-    carregarUsuario();
+    // Verifica se é edição (tem ID) ou criação (ID é 'novo' ou undefined)
+    if (id && id !== 'novo' && id !== 'undefined') {
+      setModoEdicao(true);
+      carregarUsuario();
+    } else {
+      // Modo criação - não precisa carregar dados
+      setCarregando(false);
+      setModoEdicao(false);
+    }
   }, [id]);
 
   const carregarUsuario = async () => {
@@ -49,8 +58,20 @@ const EditarUsuario = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch(`http://localhost:3000/usuarios/${id}`, {
-        method: 'PUT',
+      let url, method;
+      
+      if (modoEdicao) {
+        // Modo EDIÇÃO - PUT
+        url = `http://localhost:3000/usuarios/${id}`;
+        method = 'PUT';
+      } else {
+        // Modo CRIAÇÃO - POST
+        url = 'http://localhost:3000/usuarios';
+        method = 'POST';
+      }
+
+      const response = await fetch(url, {
+        method: method,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -58,25 +79,26 @@ const EditarUsuario = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Erro ao atualizar usuário');
+        throw new Error(`Erro ao ${modoEdicao ? 'atualizar' : 'criar'} usuário`);
       }
 
-      alert('Usuário atualizado com sucesso!');
+      alert(`Usuário ${modoEdicao ? 'atualizado' : 'criado'} com sucesso!`);
       navigate('/usuarios');
       
     } catch (error) {
-      console.error('Erro ao atualizar usuário:', error);
-      alert('Erro ao atualizar usuário');
+      console.error(`Erro ao ${modoEdicao ? 'atualizar' : 'criar'} usuário:`, error);
+      alert(`Erro ao ${modoEdicao ? 'atualizar' : 'criar'} usuário`);
     }
   };
 
-  if (carregando) {
+  if (carregando && modoEdicao) {
     return <div className="cadastro-container">Carregando...</div>;
   }
 
   return (
     <div className="cadastro-container">
       <form className="cadastro-form" onSubmit={handleSubmit}>
+        <h2>{modoEdicao ? 'Editar Usuário' : 'Criar Novo Usuário'}</h2>
         
         <div className="form-group">
           <label htmlFor="nome">NOME</label>
@@ -104,13 +126,13 @@ const EditarUsuario = () => {
 
         <div className="button-container">
           <button type="submit" className="btn">
-            Atualizar
+            {modoEdicao ? 'Atualizar' : 'Criar'}
           </button>
           
           <button 
             type="button" 
             className="btn"
-            onClick={() => navigate('/usuarios')}
+            onClick={() => navigate('/')}
           >
             Voltar
           </button>
