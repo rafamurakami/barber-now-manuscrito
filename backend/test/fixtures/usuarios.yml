@@ -2,8 +2,36 @@
 
 one:
   nome: MyString
+  sobrenome: MyString
+  nascimento: 2025-09-29
+  genero: MyString
+  cpf: MyString
   email: MyString
+  senha: MyString
+  telefone: MyString
+  usuario: MyString
+  cep: MyString
+  bairro: MyString
+  rua: MyString
+  estado: MyString
+  cidade: MyString
+  numero: MyString
+  complemento: MyString
 
 two:
   nome: MyString
+  sobrenome: MyString
+  nascimento: 2025-09-29
+  genero: MyString
+  cpf: MyString
   email: MyString
+  senha: MyString
+  telefone: MyString
+  usuario: MyString
+  cep: MyString
+  bairro: MyString
+  rua: MyString
+  estado: MyString
+  cidade: MyString
+  numero: MyString
+  complemento: MyString
