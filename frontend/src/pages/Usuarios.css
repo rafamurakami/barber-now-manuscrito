@@ -1,88 +1,121 @@
 .usuarios-container {
-  padding: 20px;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-}
-
-.usuarios-container h1 {
-  color: #333;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.loading, .error, .no-users {
-  text-align: center;
-  font-size: 18px;
-  color: #666;
-  margin-top: 50px;
-}
-
-.error {
-  color: #d32f2f;
+  padding: 20px;
 }
 
 .usuarios-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .usuario-item {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  transition: background-color 0.3s ease;
-}
-
-.usuario-item:hover {
-  background-color: #f0f0f0;
+  align-items: flex-start;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .usuario-info {
+  flex: 1;
+}
+
+.usuario-header {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
 }
 
 .usuario-nome {
+  font-size: 1.4em;
   font-weight: bold;
   color: #333;
-  font-size: 16px;
 }
 
-.usuario-email {
+.usuario-usuario {
   color: #666;
-  font-size: 14px;
+  font-style: italic;
+}
+
+.usuario-detalhes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.detalhe-item {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.detalhe-item strong {
+  color: #333;
+}
+
+.usuario-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 120px;
+}
+
+.edit-btn, .delete-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.edit-btn {
+  background: #007bff;
+  color: white;
 }
 
 .delete-btn {
-  background-color: #d32f2f;
+  background: #dc3545;
   color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  background: #0056b3;
 }
 
 .delete-btn:hover {
-  background-color: #b71c1c;
+  background: #c82333;
 }
 
-/* Responsividade */
+.loading, .error, .no-users {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2em;
+}
+
+.error {
+  color: #dc3545;
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
   .usuario-item {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
   }
   
-  .delete-btn {
-    align-self: flex-end;
+  .usuario-actions {
+    flex-direction: row;
+    margin-top: 15px;
+    justify-content: flex-end;
+  }
+  
+  .usuario-detalhes {
+    grid-template-columns: 1fr;
   }
 }

@@ -5,7 +5,6 @@ import Botao from '../components/LoginButton';
 import '../App.css'; 
 import BotaoCadastro from '../components/Cadastro/BotaoCadastro';
 import BotaoUsuario from '../components/Usuarios/BotaoUsuarios';
-import BotaoCadastroExemplo from '../components/CadastroExemplo/BotaoCadastroExemplo';
 
 function LoginPage() {
   return (
@@ -18,7 +17,6 @@ function LoginPage() {
         <BotaoCadastro />
         <Botao />
         <BotaoUsuario />
-        <BotaoCadastroExemplo />
       </div>
     </div>
   );
